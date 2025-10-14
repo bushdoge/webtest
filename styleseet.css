@@ -84,3 +84,24 @@ footer {
     border-top: 1px solid #e0e0e0;
     color: #888;
 }
+
+/* --- 画像用 --- */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gallery-image {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid var(--main-color);
+    border-radius: 8px;
+    margin: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
