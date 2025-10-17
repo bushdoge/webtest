@@ -5,25 +5,55 @@ const galleryImages = document.querySelectorAll('.gallery-image');
 galleryImages.forEach(image => {
     // 画像がクリックされたときの処理
     image.addEventListener('click', () => {
-        // 1. 黒い背景（オーバーレイ）を作成
+        // --- モーダル要素の作成 ---
         const overlay = document.createElement('div');
         overlay.classList.add('modal-overlay');
 
-        // 2. 拡大表示用の画像要素を作成
+        const container = document.createElement('div');
+        container.classList.add('modal-container');
+
         const modalImage = document.createElement('img');
-        modalImage.src = image.src; // クリックされた画像のソースをコピー
-        modalImage.alt = image.alt; // altテキストもコピー
         modalImage.classList.add('modal-content');
+        modalImage.src = image.src; // srcを先に設定
 
-        // 3. オーバーレイに拡大画像を追加
-        overlay.appendChild(modalImage);
+        // --- ヘッダー要素の作成 ---
+        const header = document.createElement('div');
+        header.classList.add('modal-header');
 
-        // 4. ページ（body）にオーバーレイを追加して表示
-        document.body.appendChild(overlay);
+        const altText = document.createElement('span');
+        altText.classList.add('modal-alt-text');
+        altText.innerText = image.alt;
 
-        // 5. オーバーレイがクリックされたら、自身を削除して拡大表示を閉じる
-        overlay.addEventListener('click', () => {
+        const closeButton = document.createElement('span');
+        closeButton.classList.add('modal-close-button');
+        closeButton.innerHTML = '&times;';
+
+        // --- 要素の組み立て ---
+        header.appendChild(altText);         // ヘッダーにaltテキストを追加
+        header.appendChild(closeButton);     // ヘッダーに閉じるボタンを追加
+        
+        container.appendChild(header);       // コンテナにヘッダーを追加
+        container.appendChild(modalImage);   // コンテナに画像を追加
+
+        overlay.appendChild(container);      // オーバーレイにコンテナを追加
+        document.body.appendChild(overlay);  // ページにオーバーレイを追加して表示
+
+        // ★★★★★ ここが重要 ★★★★★
+        // 画像が読み込まれてサイズが確定した後に、コンテナの幅を画像の幅に設定する
+        modalImage.onload = () => {
+            container.style.width = `${modalImage.offsetWidth}px`;
+        };
+
+        // --- イベントリスナーの設定 ---
+        const closeModal = () => {
             document.body.removeChild(overlay);
+        };
+
+        closeButton.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+        
+        container.addEventListener('click', (e) => {
+            e.stopPropagation(); // コンテナ（画像やヘッダー）のクリックでは閉じないようにする
         });
     });
 });
