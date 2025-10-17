@@ -10,98 +10,107 @@
 
 /* --- 全体のスタイル --- */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: var(--base-color);
-    color: var(--text-color);
-    line-height: 1.6;
+    margin: 0; /* ブラウザ標準の余白をリセット */
+    padding: 0; /* ブラウザ標準の内側余白をリセット */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 各OSで見やすいフォントを指定 */
+    background-color: var(--base-color); /* 背景色に薄い水色を設定 */
+    color: var(--text-color); /* 全体の文字色を基本色に設定 */
+    line-height: 1.6; /* 行の高さを文字サイズの1.6倍に設定し、読みやすくする */
 }
 
 /* --- コンテンツ全体を囲むラッパー --- */
 .container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: var(--white-color);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* コンテンツの最大幅を800pxに制限 */
+    margin: 40px auto; /* 上下に40px、左右は自動で中央揃え */
+    padding: 30px; /* 内側に30pxの余白を設定 */
+    background-color: var(--white-color); /* 背景色を白に設定 */
+    border-radius: 12px; /* 角を12pxの丸みにする */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 薄い影をつけて立体感を出す */
 }
 
 /* --- ヘッダー --- */
 header {
-    background-color: var(--main-color);
-    padding: 20px 30px;
-    text-align: center;
-    border-radius: 12px 12px 0 0;
-    margin: -30px -30px 30px -30px;
+    background-color: var(--main-color); /* ヘッダーの背景色をメインの水色に設定 */
+    padding: 20px 30px; /* 内側に上下20px、左右30pxの余白を設定 */
+    text-align: center; /* 中のテキストを中央揃えにする */
+    border-radius: 12px 12px 0 0; /* 左上と右上の角だけを丸くする */
+    margin: -30px -30px 30px -30px; /* containerのpaddingを打ち消してヘッダーをピッタリ表示させる */
 }
 
 header h1 {
-    margin: 0;
-    color: var(--white-color);
-    font-size: 2.5em;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    margin: 0; /* h1が持つ標準の余白をリセット */
+    color: var(--white-color); /* 文字色を白に設定 */
+    font-size: 2.5em; /* 文字サイズを標準の2.5倍にする */
+    font-weight: bold; /* 文字を太字にする */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* 文字に少し影をつけて読みやすくする */
 }
 
 /* --- メインコンテンツ --- */
 main h2 {
-    font-size: 1.8em;
-    color: var(--main-color);
-    border-bottom: 3px solid var(--accent-color);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    font-size: 1.8em; /* 文字サイズを標準の1.8倍にする */
+    color: var(--main-color); /* 文字色をメインの水色に設定 */
+    border-bottom: 3px solid var(--accent-color); /* 下に3pxのピンク色の線を引く */
+    padding-bottom: 10px; /* 文字と下線の間に10pxの余白を設ける */
+    margin-bottom: 20px; /* 見出しの下に20pxの余白を設ける */
 }
 
 main p {
-    font-size: 1em;
-    margin-bottom: 20px;
+    font-size: 1em; /* 文字サイズを標準サイズにする */
+    margin-bottom: 20px; /* 段落の下に20pxの余白を設ける */
+}
+
+/* --- ボタンのレイアウト --- */
+.button-container {
+    display: flex; /* Flexboxレイアウトを有効にし、中の要素を横並びにする */
+    justify-content: center; /* 横並びにした要素を中央に配置する */
+    gap: 20px; /* ボタン同士の間隔を20px空ける */
+    margin-top: 40px; /* 上のテキストとの間隔を40px空ける */
+    flex-wrap: wrap; /* 画面幅が狭い時にボタンが自動で折り返すようにする */
 }
 
 /* --- アクセントカラーを使ったボタン --- */
 .cta-button {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--white-color);
-    padding: 12px 25px;
-    border-radius: 50px; /* 角を丸くして柔らかい印象に */
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block; /* aタグをブロック要素のように扱い、paddingなどを有効にする */
+    background-color: var(--accent-color); /* 背景色をピンクに設定 */
+    color: var(--white-color); /* 文字色を白に設定 */
+    padding: 12px 25px; /* 内側に上下12px、左右25pxの余白を設定 */
+    border-radius: 50px; /* 角を丸くして柔らかい印象にする */
+    text-decoration: none; /* aタグ標準の下線を消す */
+    font-weight: bold; /* 文字を太字にする */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* ホバー時の変化を0.3秒かけて滑らかにする */
 }
 
 .cta-button:hover {
-    background-color: var(--accent-hover-color);
-    transform: translateY(-2px); /* 少し浮き上がる動き */
+    background-color: var(--accent-hover-color); /* マウスが乗った時に背景色を濃いピンクに変更 */
+    transform: translateY(-2px); /* マウスが乗った時に少し上に移動させる */
 }
 
 /* --- フッター --- */
 footer {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #e0e0e0;
-    color: #888;
+    text-align: center; /* テキストを中央揃えにする */
+    margin-top: 40px; /* フッターの上に40pxの余白を設ける */
+    padding-top: 20px; /* フッターの内側の上に20pxの余白を設ける */
+    border-top: 1px solid #e0e0e0; /* 上に1pxの薄い灰色の線を引く */
+    color: #888; /* 文字色を少し薄い灰色にする */
 }
 
 /* --- 画像用 --- */
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
+    display: flex; /* 中の画像をFlexboxでレイアウトする */
+    flex-wrap: wrap; /* 画像がコンテナの幅を超えたら折り返す */
+    justify-content: center; /* 画像を中央に配置する */
+    margin-top: 20px; /* ギャラリー全体の上に20pxの余白を設ける */
 }
 
 .gallery-image {
-    max-width: 100%;
-    height: auto;
-    border: 2px solid var(--main-color);
-    border-radius: 8px;
-    margin: 10px;
-    transition: transform 0.3s ease;
+    max-width: 100%; /* 画像の最大幅を親要素の100%に制限し、はみ出さないようにする */
+    height: auto; /* 高さを自動調整して画像のアスペクト比を保つ */
+    border: 2px solid var(--main-color); /* メインの水色で2pxの枠線をつける */
+    border-radius: 8px; /* 画像の角を8px丸くする */
+    margin: 10px; /* 画像の周りに10pxの余白を設ける */
+    transition: transform 0.3s ease; /* ホバー時の変形を0.3秒かけて滑らかにする */
 }
 
 .gallery-image:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* マウスが乗った時に画像を1.05倍に拡大する */
 }
