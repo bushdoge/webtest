@@ -1,11 +1,11 @@
 /* --- 色の指定 --- */
 :root {
-    --base-color: #e0f7fa; /* 全体の背景になる薄い水色 */
-    --main-color: #81d4fa; /* ヘッダーやフッターのメインの水色 */
-    --accent-color: #f48fb1; /* アクセントのピンク */
-    --accent-hover-color: #f06292; /* アクセントのホバー時の濃いピンク */
+    --base-color: #e0f7fa; /* 全体の背景 */
+    --main-color: #81d4fa; /* ヘッダーやフッターの色 */
+    --accent-color: #f48fb1; /* アクセント色 */
+    --accent-hover-color: #f06292; /* アクセントのホバー時の色 */
     --text-color: #333333; /* 基本の文字色 */
-    --white-color: #ffffff; /* 白 */
+    --white-color: #ffffff;
 }
 
 /* --- 全体のスタイル --- */
