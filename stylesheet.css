@@ -114,3 +114,24 @@ footer {
 .gallery-image:hover {
     transform: scale(1.05); /* マウスが乗った時に画像を1.05倍に拡大する */
 }
+
+/* --- モーダル（拡大表示）用のスタイル --- */
+.modal-overlay {
+    position: fixed; /* 画面に固定表示する */
+    top: 0; /* 画面の上端に配置 */
+    left: 0; /* 画面の左端に配置 */
+    width: 100%; /* 画面全体の幅にする */
+    height: 100%; /* 画面全体の高さにする */
+    background-color: rgba(0, 0, 0, 0.8); /* 少し透けた黒い背景 */
+    display: flex; /* 中の画像をFlexboxでレイアウト */
+    justify-content: center; /* 画像を水平方向に中央揃え */
+    align-items: center; /* 画像を垂直方向に中央揃え */
+    z-index: 1000; /* 他のどの要素よりも手前に表示 */
+    cursor: pointer; /* マウスカーソルをポインターにする */
+}
+
+.modal-content {
+    max-width: 90%; /* 画面幅の90%を最大幅とする */
+    max-height: 90%; /* 画面高さの90%を最大高とする */
+    object-fit: contain; /* 画像のアスペクト比を保ったまま表示 */
+}
