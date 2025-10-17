@@ -60,6 +60,15 @@ main p {
 }
 
 /* --- アクセントカラーを使ったボタン --- */
+/* --- ボタンのレイアウト --- */
+.button-container {
+    display: flex; /* ボタンを横並びにする */
+    justify-content: center; /* ボタン全体を中央に配置する */
+    gap: 20px; /* ボタン同士の間隔を20px空ける */
+    margin-top: 40px; /* 上のテキストとの間隔を空ける */
+    flex-wrap: wrap; /* 画面幅が狭い時にボタンを折り返す */
+}
+
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
