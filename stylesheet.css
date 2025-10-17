@@ -141,23 +141,23 @@ footer {
     display: flex; /* 中の要素を横並びにする */
     justify-content: space-between; /* 両端に要素を配置する */
     align-items: center; /* 要素を垂直方向の中央に揃える */
-    padding: 8px 0; /* 上下に少し余白を持たせる */
+    padding: 10px 0; /* ★上下の余白を8pxから10pxに広げました */
     color: white; /* 文字色を白に */
 }
 
 /* altテキスト用のスタイル */
 .modal-alt-text {
-    font-size: 0.9em; /* 少し小さめの文字サイズ */
-    margin-left: 5px; /* 左側に少し余白 */
+    font-size: 1.5em; /* ★0.9emから1.5emに大きくしました */
+    margin-left: 8px; /* ★左側の余白を5pxから8pxに広げました */
 }
 
 /* 閉じるボタン用のスタイル */
 .modal-close-button {
-    font-size: 1.8em; /* 文字サイズ */
+    font-size: 2.5em; /* ★1.8emから2.5emに大きくしました */
     font-weight: bold; /* 文字を太く */
     line-height: 1; /* 行の高さを調整 */
     cursor: pointer; /* マウスカーソルをポインターにする */
-    padding: 0 5px; /* 左右に少し余白 */
+    padding: 0 8px; /* ★左右の余白を5pxから8pxに広げました */
     transition: transform 0.2s ease; /* ホバー時のアニメーション */
 }
 
