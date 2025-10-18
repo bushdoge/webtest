@@ -114,3 +114,61 @@ footer {
 .gallery-image:hover {
     transform: scale(1.05); /* マウスが乗った時に画像を1.05倍に拡大する */
 }
+
+/* --- モーダル（拡大表示）用のスタイル --- */
+.modal-overlay {
+    position: fixed; /* 画面に固定表示する */
+    top: 0; /* 画面の上端に配置 */
+    left: 0; /* 画面の左端に配置 */
+    width: 100%; /* 画面全体の幅にする */
+    height: 100%; /* 画面全体の高さにする */
+    background-color: rgba(0, 0, 0, 0.85); /* 少し透けた黒い背景 */
+    display: flex; /* 中の要素をFlexboxでレイアウト */
+    justify-content: center; /* 要素を水平方向に中央揃え */
+    align-items: center; /* 要素を垂直方向に中央揃え */
+    z-index: 1000; /* 他のどの要素よりも手前に表示 */
+    cursor: pointer; /* マウスカーソルをポインターにする */
+}
+
+/* 画像とヘッダーをまとめるコンテナ */
+.modal-container {
+    /* JavaScriptによって幅が設定される */
+    cursor: default; /* コンテナの上では通常のカーソルにする */
+}
+
+/* altテキストと閉じるボタンを格納するヘッダー */
+.modal-header {
+    display: flex; /* 中の要素を横並びにする */
+    justify-content: space-between; /* 両端に要素を配置する */
+    align-items: center; /* 要素を垂直方向の中央に揃える */
+    padding: 10px 0; /* ★上下の余白を8pxから10pxに広げました */
+    color: white; /* 文字色を白に */
+}
+
+/* altテキスト用のスタイル */
+.modal-alt-text {
+    font-size: 1.5em; /* ★0.9emから1.5emに大きくしました */
+    margin-left: 8px; /* ★左側の余白を5pxから8pxに広げました */
+}
+
+/* 閉じるボタン用のスタイル */
+.modal-close-button {
+    font-size: 2.5em; /* ★1.8emから2.5emに大きくしました */
+    font-weight: bold; /* 文字を太く */
+    line-height: 1; /* 行の高さを調整 */
+    cursor: pointer; /* マウスカーソルをポインターにする */
+    padding: 0 8px; /* ★左右の余白を5pxから8pxに広げました */
+    transition: transform 0.2s ease; /* ホバー時のアニメーション */
+}
+
+.modal-close-button:hover {
+    transform: scale(1.1); /* ホバー時に少し大きくする */
+}
+
+/* 拡大表示される画像 */
+.modal-content {
+    display: block; /* 画像が持つ下の余分な余白を消す */
+    max-width: 90vw; /* 画面幅の90%を最大幅とする */
+    max-height: 85vh; /* 画面高さの85%を最大高とする（ヘッダー分を考慮） */
+    object-fit: contain; /* 画像のアスペクト比を保ったまま表示 */
+}
